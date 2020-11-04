@@ -1,0 +1,27 @@
+{% extends "./base.html" %}
+{% block content %}
+<form class="form-signin form-group" method="post">
+  <h1 class="h3 mb-5 font-weight-normal text-center">Password Bank</h1>
+  {% csrf_token %}
+  {% for field in form %}
+    {{ field }}
+    {% if field.help_text %}
+      <small style="color: grey">{{ field.help_text }}</small>
+    {% endif %}
+    {% for error in field.errors %}
+      <p style="color: red">{{ error }}</p>
+    {% endfor %}
+  {% endfor %}
+  <div class="checkbox mb-3 text-center">
+    <label>
+      <input type="checkbox" id="remember_me" name="remember_me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block mb-5" type="submit">Sign In</button>
+
+  <small>
+    <a class="text-info float-right" href="{% url 'accounts:signup' %}">Create New Account</a>
+  </small>
+
+</form>
+{% endblock %}

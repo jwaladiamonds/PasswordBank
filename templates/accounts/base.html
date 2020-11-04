@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  {% include 'common/head.html' %}
+  <link rel="canonical" href="{% url 'accounts:login' %}">
+  <title>Password Bank</title>
+
+  {% include 'common/styles.html' %}
+  <link href="{% static 'css/account.css' %}" rel="stylesheet">
+</head>
+
+<body>
+  {% include 'common/messages.html' %}
+  {% block content %}{% endblock %}
+  {% include 'common/scripts.html' %}
+</body>
+
+</html>
